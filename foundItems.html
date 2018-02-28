@@ -1,0 +1,10 @@
+    <div class="clearfix"></div>
+    <div>
+		<h3>List of Menu Items</h3>
+    	<ul>
+        	<li ng-repeat="item in itemsx">
+          		{{ item.name }}
+          		<button ng-click="onRemove({index: $index});">Remove Item</button>
+        	</li>
+      	</ul>
+  	</div>	
