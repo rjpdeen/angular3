@@ -51,14 +51,16 @@ function MenuSearchService($http, ApiBasePath){
 		
 		var found = [];
     	promise.then(function (response) {
+			if (searchItem !== "") {
+				for (var i = 0; i < response.data.menu_items.length; i++) {
+		      		var name = response.data.menu_items[i].name;
+		      		if (name.toLowerCase().indexOf(searchItem) !== -1) {
+		        		//add to found
+		        		found.push(response.data.menu_items[i]);
+		      		}
+	    		}	
+			}
 			
-			for (var i = 0; i < response.data.menu_items.length; i++) {
-	      		var name = response.data.menu_items[i].name;
-	      		if (name.toLowerCase().indexOf(searchItem) !== -1) {
-	        		//add to found
-	        		found.push(response.data.menu_items[i]);
-	      		}
-	    	}
 
 		})
 	  	.catch(function (error) {

@@ -3,8 +3,9 @@
 		<h3>List of Menu Items</h3>
     	<ul>
         	<li ng-repeat="item in itemsx">
-          		{{ item.name }}
-          		<button ng-click="onRemove({index: $index});">Remove Item</button>
+          		{{ item.name }}, {{ item.short_name }}, {{ item.description }}
+          		<button ng-click="onRemove({index: $index});">Don't want this one!</button>
         	</li>
       	</ul>
   	</div>	
+  	<div class="error" ng-if="itemsx.length === 0">Nothing found.</div>
